@@ -705,10 +705,14 @@ def delete_goal(goal_slug: str) -> str:
         return json.dumps({"status": "error", "message": str(e)})
 
 
-if __name__ == "__main__":
+def main():
+    """Main entry point for the MCP server."""
     try:
         logger.info("Starting server...")
         mcp.run(transport="stdio")
     except Exception as e:
         logger.error(f"Error running server: {str(e)}", exc_info=True)
         raise
+
+if __name__ == "__main__":
+    main()
